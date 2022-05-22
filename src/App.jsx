@@ -11,7 +11,7 @@ function App() {
                         <header>
                             <Wrapper>
                                 <Center>
-                                    <h1>Sushi Rice Calculator</h1>
+                                    <h1>Sushi Rice <span style={{whiteSpace: 'nowrap'}}>Calculator 🍣</span></h1>
                                 </Center>
                             </Wrapper>
                         </header>
