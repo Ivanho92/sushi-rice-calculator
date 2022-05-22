@@ -1,0 +1,38 @@
+.sushi-rice-calculator {
+    padding: 1rem;
+    background-color: lightblue;
+    border-radius: 7.5px;
+}
+
+.peopleForm {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5rem;
+}
+
+.peopleForm > input[type='number'] {
+    padding: .5rem 1rem;
+    /* width: 3rem; */
+}
+
+.quantities > * {
+    padding-block: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.quantities > *:not(:first-child) {
+    border-top: 1px solid black;
+}
+
+.unitsForm {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.unitsForm > select {
+    padding: .3rem .75rem;
+}
