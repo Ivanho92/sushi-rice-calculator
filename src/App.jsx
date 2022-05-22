@@ -1,25 +1,45 @@
-import './App.css';
-import { Wrapper, Center } from './utilities/utilities';
+import { Wrapper, Center, Cover } from './utilities/utilities';
 
 import SushiRiceCalculator from './components/SushiRiceCalculator';
 
 function App() {
     return (
-        <Wrapper>
+        <>
             <div className="app">
-                <header>
-                    <Center>
-                        <h1>Sushi Rice Calculator</h1>
-                    </Center    >
-                </header>
-                <main>
-                    <SushiRiceCalculator />
-                </main>
-                <footer>
-                    <Center>Created with love by Ivan Rodrigues</Center>
-                </footer>
+                <Cover>
+                    <div>
+                        <header>
+                            <Wrapper>
+                                <Center>
+                                    <h1>Sushi Rice Calculator</h1>
+                                </Center>
+                            </Wrapper>
+                        </header>
+
+                        <main>
+                            <Wrapper>
+                                <SushiRiceCalculator />
+                            </Wrapper>
+                        </main>
+                    </div>
+
+                    <footer>
+                        <Wrapper>
+                            Created with ❤️ by{' '}
+                            <a
+                                href="https://ivan-rodrigues.com"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                Ivan Rodrigues
+                            </a>
+                            .
+                        </Wrapper>
+                    </footer>
+                </Cover>
             </div>
-        </Wrapper>
+            <div className="overlay"></div>
+        </>
     );
 }
 

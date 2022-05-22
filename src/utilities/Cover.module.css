@@ -1,0 +1,12 @@
+.cover {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
+}
+.cover > :first-child:not(main) {
+    margin-top: 0;
+}
+.cover > :last-child:not(main) {
+    margin-bottom: 0;
+}
