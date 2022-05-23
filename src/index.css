@@ -70,6 +70,7 @@ footer {
     color: #000;
     background-color: var(--secondary-200);
     text-align: center;
+    margin-block-start: 2rem;
 }
 
 .overlay {
