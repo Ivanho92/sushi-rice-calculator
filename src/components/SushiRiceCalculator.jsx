@@ -57,74 +57,87 @@ const SushiRiceCalculator = () => {
         switch (units) {
             case 'metric':
                 setQuantities({
-                    rice: (people * 150 * hungrinessRatios.rice).toFixed(0) + ' g',
-                    water: (people * 200 * hungrinessRatios.water).toFixed(0) + ' ml',
+                    rice:
+                        (people * 150 * hungrinessRatios.rice).toFixed(0) +
+                        ' g',
+                    water:
+                        (people * 200 * hungrinessRatios.water).toFixed(0) +
+                        ' ml',
                     riceVinegar:
-                        (people * 27 * hungrinessRatios.riceVinegar).toFixed(0) + ' g',
-                    sugar: (people * 5 * hungrinessRatios.sugar).toFixed(0) + ' g',
-                    salt: (people * 2 * hungrinessRatios.salt).toFixed(0) + ' g',
+                        (people * 27 * hungrinessRatios.riceVinegar).toFixed(
+                            0
+                        ) + ' g',
+                    sugar:
+                        (people * 5 * hungrinessRatios.sugar).toFixed(0) + ' g',
+                    salt:
+                        (people * 2 * hungrinessRatios.salt).toFixed(0) + ' g',
                 });
                 break;
             case 'cups':
                 setQuantities({
-                    rice: (people * 0.7 * hungrinessRatios.rice).toFixed(0) + ' cup',
-                    water: (people * 0.8 * hungrinessRatios.water).toFixed(0) + ' cup',
+                    rice:
+                        parseFloat((people * 0.7 * hungrinessRatios.rice).toFixed(1)) +
+                        ' cup',
+                    water:
+                        parseFloat((people * 0.8 * hungrinessRatios.water).toFixed(1)) +
+                        ' cup',
                     riceVinegar:
-                        (people * 1.8 * hungrinessRatios.riceVinegar).toFixed(0) +
+                        parseFloat((people * 1.8 * hungrinessRatios.riceVinegar).toFixed(
+                            1)
+                        ) + ' tablespoon',
+                    sugar:
+                        parseFloat((people * 0.4 * hungrinessRatios.sugar).toFixed(1)) +
                         ' tablespoon',
-                    sugar: (people * 0.4 * hungrinessRatios.sugar).toFixed(0) + ' tablespoon',
-                    salt: (people * 0.4 * hungrinessRatios.salt).toFixed(0) + ' teaspoon',
+                    salt:
+                        parseFloat((people * 0.4 * hungrinessRatios.salt).toFixed(1)) +
+                        ' teaspoon',
                 });
                 break;
             default:
                 throw new Error('Unit not detected!');
         }
-    }, [
-        people,
-        units,
-        hungriness
-    ]);
+    }, [people, units, hungriness]);
 
     return (
         <Center>
             <div className={classes['sushi-rice-calculator']}>
                 <Flow>
-                    <form id="peopleForm" className={classes.peopleForm}>
-                        <label htmlFor="people">How many people?</label>
-                        <input
-                            id="people"
-                            type="number"
-                            min="1"
-                            max="99"
-                            defaultValue="1"
-                            required
-                            onChange={peopleChangeHandler}
-                        />
-                    </form>
-                    <form id="hungrinessForm" className={classes.hungrinessForm}>
-                    <label htmlFor="units">How hungry are you?</label>
-                        <select
-                            name="hungriness"
-                            id="hungriness"
-                            defaultValue="medium"
-                            onChange={hungrinessChangeHandler}
-                        >
-                            <option value="high">High</option>
-                            <option value="medium">Medium</option>
-                            <option value="low">Low</option>
-                        </select>
+                    <form id="quantitiesForm" className={classes.quantitiesForm}>
+                        <div className={`row ${classes.people}`}>
+                            <label htmlFor="people">How many people?</label>
+                            <input
+                                id="people"
+                                name="people"
+                                type="number"
+                                min="1"
+                                max="99"
+                                defaultValue="1"
+                                required
+                                onChange={peopleChangeHandler}
+                            />
+                        </div>
+                        <div className={`row ${classes.hungriness}`}>
+                            <label htmlFor="hungriness">How hungry are you?</label>
+                            <select
+                                name="hungriness"
+                                id="hungriness"
+                                defaultValue="medium"
+                                onChange={hungrinessChangeHandler}
+                            >
+                                <option value="high">High</option>
+                                <option value="medium">Medium</option>
+                                <option value="low">Low</option>
+                            </select>
+                        </div>
+                        <button style={{display: 'none'}} type="submit">Submit</button>
                     </form>
                     <div className={classes.quantities}>
                         <div>
-                            <span>
-                                {quantities.rice}
-                            </span>
+                            <span>{quantities.rice}</span>
                             <span>Rice</span>
                         </div>
                         <div>
-                            <span>
-                                {quantities.water}
-                            </span>
+                            <span>{quantities.water}</span>
                             <span>Water</span>
                         </div>
                         <div>
@@ -151,6 +164,7 @@ const SushiRiceCalculator = () => {
                             <option value="metric">Metric</option>
                             <option value="cups">Cups</option>
                         </select>
+                        <button style={{display: 'none'}} type="submit">Submit</button>
                     </form>
                 </Flow>
             </div>

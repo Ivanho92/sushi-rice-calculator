@@ -1,22 +1,32 @@
 .sushi-rice-calculator {
     padding: 1rem;
-    background-color: hsla(6, 93%, 71%, 0.85);
+    background: linear-gradient(180deg, var(--primary-300) 0%, var(--primary-400) 25%);
     border-radius: 7.5px;
     max-width: 500px;
     width: 100%;
-    color: white;
-    box-shadow: 0 2px 2px 4px rgb(0 0 0 / 20%);
+    color: black;
+    box-shadow: .5px 2px 3px 2px var(--secondary-200);
 }
 
-.peopleForm,
-.hungrinessForm {
+/* .quantitiesForm {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 1.5rem;
+} */
+
+.quantitiesForm > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: .5rem;
 }
 
-.peopleForm > input[type='number'] {
+fieldset > legend {
+    display: inline-block;
+}
+
+.people > input[type='number'] {
     padding-block: 0.2rem;
     /* width: 3.75rem; */
     text-align: center;
@@ -25,8 +35,8 @@
     cursor: pointer;
 }
 
-.peopleForm > input[type='number']::-webkit-outer-spin-button,
-.peopleForm > input[type='number']::-webkit-inner-spin-button {
+.people > input[type='number']::-webkit-outer-spin-button,
+.people > input[type='number']::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 
@@ -42,7 +52,7 @@ select {
 .quantities {
     border-radius: 5px;
     padding-inline: 1rem;
-    background-color: rgb(255, 255, 255);
+    background-color: #fff;
     color: black;
 }
 
